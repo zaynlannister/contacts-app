@@ -1,16 +1,20 @@
-import { Outlet } from "react-router-dom";
-import TopBar from "./TopBar";
-import Sidebar from "./Sidebar";
+import TopBar from "./TopBar/TopBar";
+import Sidebar from "./SideBar/Sidebar";
+import RightBar from "./RightBar/RightBar";
+import Contacts from "../pages/Contacts/Contacts";
 
 const Root = () => {
   return (
     <div className="flex overflow-hidden">
-      <div className="ml-2 mt-2">
+      <div>
         <Sidebar />
       </div>
       <div className="w-full">
         <TopBar />
-        <Outlet />
+        <div className="flex justify-between">
+          <Contacts />
+          <RightBar />
+        </div>
       </div>
     </div>
   );
