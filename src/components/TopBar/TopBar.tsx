@@ -15,7 +15,7 @@ const GreenButton = styled(Button)<ButtonProps>(({}) => ({
 
 const TopBar = () => {
   return (
-    <div className="border-b border-[#9A9A9A] py-6 px-4">
+    <div className="border-b border-[#cfd0d3] py-6 px-4">
       <div>
         <div>
           <form className="flex justify-between">
@@ -28,7 +28,7 @@ const TopBar = () => {
                 variant="outlined"
               />
 
-              <GreenButton
+              <Button
                 size="small"
                 sx={{
                   marginLeft: "8px",
@@ -39,7 +39,7 @@ const TopBar = () => {
                 variant="contained"
               >
                 <SearchIcon />
-              </GreenButton>
+              </Button>
             </div>
             <div className="flex">
               <Button

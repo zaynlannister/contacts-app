@@ -25,7 +25,7 @@ const EmailButton = styled(Button)<ButtonProps>(({}) => ({
 
 const RightBar = () => {
   return (
-    <div className="max-w-[280px] min-w-[280px] border-l border-[#7C7C7C] px-4 pt-8 h-screen">
+    <div className="max-w-[300px] min-w-[300px] border-l border-[#cfd0d3] px-4 pt-8 h-screen">
       <div className="flex flex-col items-center">
         <Avatar sx={{ width: 100, height: 100 }} />
         <p className="font-bold mt-2">User name</p>
