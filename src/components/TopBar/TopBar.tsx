@@ -15,11 +15,11 @@ const GreenButton = styled(Button)<ButtonProps>(({}) => ({
 
 const TopBar = () => {
   return (
-    <div className="border-b border-[#cfd0d3] py-6 px-4">
+    <div className="border-b border-[#cfd0d3] py-6 pl-[150px] pr-4">
       <div>
         <div>
           <form className="flex justify-between">
-            <div className="flex w-full mr-32">
+            <div className="flex w-full mr-[290px]">
               <TextField
                 fullWidth
                 size="small"
