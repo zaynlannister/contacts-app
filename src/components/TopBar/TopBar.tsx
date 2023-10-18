@@ -1,14 +1,18 @@
 import React from "react";
 import { Button, ButtonProps, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SideBarDrawer from "../SideBar/SideBarDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../stores/store";
-import { setSearchQuery } from "../../stores/slices/searchSlice";
 import CreateModal from "../Modals/CreateModal";
+import FilterButtonComponent from "../FilterButton/FilterButtonComponent";
+import {
+  setFamilyChecked,
+  setFriendChecked,
+} from "../../stores/slices/filterSlice";
+import { setSearchQuery } from "../../stores/slices/searchSlice";
 
 const GreenButton = styled(Button)<ButtonProps>(({}) => ({
   color: "#ffff",
@@ -34,6 +38,11 @@ const TopBar = () => {
 
   const handleCloseModal = () => {
     setOpenModal(false);
+  };
+
+  const handleFilterChange = (family: boolean, friend: boolean) => {
+    dispatch(setFamilyChecked(family));
+    dispatch(setFriendChecked(friend));
   };
   return (
     <form className="flex border-b border-[#cfd0d3]">
@@ -63,17 +72,7 @@ const TopBar = () => {
         </Button>
       </div>
       <div className="flex justify-end flex-[3_3_13%] p-4">
-        <Button
-          size="small"
-          sx={{
-            padding: "0 12px",
-            minHeight: 0,
-            minWidth: 0,
-          }}
-          variant="contained"
-        >
-          <FilterAltIcon />
-        </Button>
+        <FilterButtonComponent onFilterChange={handleFilterChange} />
         <CreateModal open={openModal} handleClose={handleCloseModal} />
         <GreenButton
           onClick={handleOpenModal}

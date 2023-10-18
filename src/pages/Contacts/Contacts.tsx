@@ -12,16 +12,28 @@ const Contacts = () => {
   const contacts = useSelector(
     (state: RootState) => state.contactsSlice.contacts
   );
+  const familyChecked = useSelector(
+    (state: RootState) => state.filterSlice.familyChecked
+  );
+  const friendChecked = useSelector(
+    (state: RootState) => state.filterSlice.friendChecked
+  );
 
   const filteredContacts = contacts.filter((contact) => {
-    const { firstName, lastName, email, phoneNumber } = contact;
+    const { firstName, lastName, email, phoneNumber, tags } = contact;
     const searchQueryLowerCase = searchQuery.toLowerCase();
 
-    return (
+    const matchesSearchQuery =
       firstName.toLowerCase().includes(searchQueryLowerCase) ||
       lastName.toLowerCase().includes(searchQueryLowerCase) ||
       email.toLowerCase().includes(searchQueryLowerCase) ||
-      phoneNumber.includes(searchQuery)
+      phoneNumber.includes(searchQuery);
+
+    const isFamily = familyChecked && tags.includes("family");
+    const isFriend = friendChecked && tags.includes("friend");
+    return (
+      matchesSearchQuery &&
+      (isFamily || isFriend || (!familyChecked && !friendChecked))
     );
   });
 
