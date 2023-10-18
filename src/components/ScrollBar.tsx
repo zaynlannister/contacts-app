@@ -4,7 +4,7 @@ const ScrollBar = (props: any) => {
   return (
     <StyledBoxScrollbar
       style={{
-        height: "calc(100vh - 150px)",
+        height: "calc(100vh - 110px)",
         overflowY: "auto",
         paddingRight: "5px",
       }}
