@@ -31,7 +31,7 @@ const Contacts = () => {
     <div className="flex-[7_7_70%] p-4">
       <ScrollBar>
         <Grid container spacing={2}>
-          {contacts.map((item, index) => (
+          {[...contacts, ...contacts, ...contacts].map((item, index) => (
             <Grid item xs={12} sm={12} md={12} xl={12}>
               <Contact key={index} contact={item} />
             </Grid>

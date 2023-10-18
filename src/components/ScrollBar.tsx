@@ -6,7 +6,7 @@ const ScrollBar = (props: any) => {
       style={{
         height: "calc(100vh - 150px)",
         overflowY: "auto",
-        paddingRight: "10px",
+        paddingRight: "5px",
       }}
     >
       {props.children}

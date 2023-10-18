@@ -7,7 +7,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 const Sidebar = () => {
   const [username, setUserName] = React.useState("User Name");
   return (
-    <div className="border-r border-[#cfd0d3] max-sm:hidden md:flex-[3_3_13%] 2xl:flex-[3_3_10%] h-screen pl-4">
+    <div className="border-r border-[#cfd0d3] max-sm:hidden md:flex-[3_3_13%] 2xl:flex-[3_3_10%] h-screen p-4">
       <div>
         <div className="pt-2">
           <Typography variant="h6">Address Book</Typography>

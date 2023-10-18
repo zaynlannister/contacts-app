@@ -1,4 +1,4 @@
-import { Avatar, Button, ButtonProps } from "@mui/material";
+import { Avatar, Box, Button, ButtonProps } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
@@ -25,7 +25,10 @@ const EmailButton = styled(Button)<ButtonProps>(({}) => ({
 
 const RightBar = () => {
   return (
-    <div className="flex-[3_3_13%] border-l border-[#cfd0d3] px-4 pt-8 h-screen">
+    <StyledRightBarContainer
+      component="div"
+      className="flex-[3_3_13%] border-l border-[#cfd0d3] px-4 pt-8 h-screen"
+    >
       <div className="flex flex-col items-center">
         <Avatar sx={{ width: 100, height: 100 }} />
         <p className="font-bold mt-2">User name</p>
@@ -70,8 +73,14 @@ const RightBar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </StyledRightBarContainer>
   );
 };
+
+const StyledRightBarContainer = styled(Box)({
+  "@media(max-width: 905px)": {
+    display: "none",
+  },
+});
 
 export default RightBar;

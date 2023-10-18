@@ -13,19 +13,7 @@ interface ContactInterface {
   };
 }
 
-const DeleteButton = styled(Button)<ButtonProps>(({}) => ({
-  color: "#e14545",
-  backgroundColor: "transparent",
-  border: "1px solid #e14545",
-  boxShadow: "none",
-  "&:hover": {
-    color: "#ffff",
-    backgroundColor: "#e14545",
-    boxShadow: "none",
-  },
-}));
-
-const EditButton = styled(Button)<ButtonProps>(({}) => ({
+const RedButton = styled(Button)<ButtonProps>(({}) => ({
   color: "#e14545",
   backgroundColor: "transparent",
   border: "1px solid #e14545",
@@ -67,7 +55,7 @@ const Contact = (props: ContactInterface) => {
           ))}
         </div>
         <div className="flex">
-          <EditButton
+          <RedButton
             sx={{
               p: 0,
               minHeight: 0,
@@ -77,8 +65,8 @@ const Contact = (props: ContactInterface) => {
             variant="contained"
           >
             <ModeEditOutlineOutlinedIcon sx={{ padding: "2px" }} />
-          </EditButton>
-          <DeleteButton
+          </RedButton>
+          <RedButton
             sx={{
               p: 0,
               minHeight: 0,
@@ -87,7 +75,7 @@ const Contact = (props: ContactInterface) => {
             variant="contained"
           >
             <DeleteOutlineIcon sx={{ padding: "2px" }} />
-          </DeleteButton>
+          </RedButton>
         </div>
       </div>
     </div>
