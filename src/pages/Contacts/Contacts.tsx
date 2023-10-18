@@ -32,8 +32,8 @@ const Contacts = () => {
       <ScrollBar>
         <Grid container spacing={2}>
           {[...contacts, ...contacts, ...contacts].map((item, index) => (
-            <Grid item xs={12} sm={12} md={12} xl={12}>
-              <Contact key={index} contact={item} />
+            <Grid key={index} item xs={12} sm={12} md={12} xl={12}>
+              <Contact contact={item} />
             </Grid>
           ))}
         </Grid>

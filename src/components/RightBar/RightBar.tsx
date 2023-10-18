@@ -2,26 +2,7 @@ import { Avatar, Box, Button, ButtonProps } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
-
-const PhoneButton = styled(Button)<ButtonProps>(({}) => ({
-  color: "#ffff",
-  backgroundColor: "#00C938",
-  boxShadow: "none",
-  "&:hover": {
-    backgroundColor: "#07a433",
-    boxShadow: "none",
-  },
-}));
-
-const EmailButton = styled(Button)<ButtonProps>(({}) => ({
-  color: "#ffff",
-  backgroundColor: "#FFB422",
-  boxShadow: "none",
-  "&:hover": {
-    backgroundColor: "#f09e00",
-    boxShadow: "none",
-  },
-}));
+import { GreenButton, OrangeButton } from "../Buttons/ColoredButtons";
 
 const RightBar = () => {
   return (
@@ -41,7 +22,7 @@ const RightBar = () => {
               <p>+023023020</p>
             </div>
             <div className="ml-2">
-              <PhoneButton
+              <GreenButton
                 sx={{
                   width: "30px",
                   height: "30px",
@@ -52,7 +33,7 @@ const RightBar = () => {
                 variant="contained"
               >
                 <LocalPhoneOutlinedIcon sx={{ padding: "2px" }} />
-              </PhoneButton>
+              </GreenButton>
             </div>
           </div>
           <div className="flex justify-between mt-2">
@@ -61,7 +42,7 @@ const RightBar = () => {
               <p>test@gmail.com</p>
             </div>
             <div className="ml-2">
-              <EmailButton
+              <OrangeButton
                 sx={{
                   width: "30px",
                   height: "30px",
@@ -72,7 +53,7 @@ const RightBar = () => {
                 variant="contained"
               >
                 <LocalPostOfficeOutlinedIcon sx={{ padding: "2px" }} />
-              </EmailButton>
+              </OrangeButton>
             </div>
           </div>
         </div>

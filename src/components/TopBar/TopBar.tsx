@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import SideBarDrawer from "../SideBar/SideBarDrawer";
 
 const GreenButton = styled(Button)<ButtonProps>(({}) => ({
   color: "#ffff",
@@ -17,6 +18,7 @@ const TopBar = () => {
   return (
     <form className="flex border-b border-[#cfd0d3]">
       <div className="flex flex-[7_7_70%] p-4">
+        <SideBarDrawer />
         <TextField
           fullWidth
           size="small"
