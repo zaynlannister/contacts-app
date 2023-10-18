@@ -7,16 +7,24 @@ import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 
-const tagsName = ["friend", "family", "job"];
+interface TagsSelectProps {
+  setFieldValue: (field: string, value: any) => void;
+}
 
-export default function TagsSelect() {
-  const [personName, setPersonName] = React.useState<string[]>([]);
+const tagsName = ["friend", "family"];
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+export default function TagsSelect(props: TagsSelectProps) {
+  const [tags, setTags] = React.useState<string[]>([]);
+
+  const handleChange = (event: SelectChangeEvent<typeof tags>) => {
     const {
       target: { value },
     } = event;
-    setPersonName(typeof value === "string" ? value.split(",") : value);
+    setTags(() => {
+      const newTags = typeof value === "string" ? value.split(",") : value;
+      props.setFieldValue("tags", newTags);
+      return newTags;
+    });
   };
 
   return (
@@ -28,14 +36,14 @@ export default function TagsSelect() {
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
-          value={personName}
+          value={tags}
           onChange={handleChange}
           input={<OutlinedInput label="Tags" />}
           renderValue={(selected) => selected.join(", ")}
         >
           {tagsName.map((name) => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={personName.indexOf(name) > -1} />
+              <Checkbox checked={tags.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}

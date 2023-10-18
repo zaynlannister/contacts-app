@@ -11,6 +11,7 @@ import {
   setActiveContact,
 } from "../../stores/slices/contactStateSlice";
 import { useNavigate } from "react-router-dom";
+import { deleteContact } from "../../stores/slices/contactSlice";
 
 interface ContactInterface {
   index: number;
@@ -43,6 +44,10 @@ const Contact = (props: ContactInterface) => {
       navigate(`contacts/${contact.id}`);
       dispatch(setActiveContact(contact.id));
     }
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteContact(contact.id));
   };
 
   React.useEffect(() => {
@@ -122,6 +127,7 @@ const Contact = (props: ContactInterface) => {
             <ModeEditOutlineOutlinedIcon sx={{ padding: "2px" }} />
           </RedButton>
           <RedButton
+            onClick={handleDelete}
             sx={{
               p: 0,
               minHeight: 0,

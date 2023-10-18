@@ -44,7 +44,10 @@ export default function ContactDrawer(props: ContactInterface) {
   const list = () => (
     <Box role="presentation" sx={{ width: 350, padding: 4 }}>
       <div className="mx-auto w-fit text-center">
-        <Avatar sx={{ width: "130px", height: "130px" }} />
+        <Avatar
+          src={props.contact?.image}
+          sx={{ width: "130px", height: "130px" }}
+        />
         <p className="font-bold mt-4">
           {props.contact?.firstName} {props.contact?.lastName}
         </p>

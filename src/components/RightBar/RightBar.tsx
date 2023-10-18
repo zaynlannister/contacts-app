@@ -29,7 +29,7 @@ const RightBar = () => {
       className="flex-[3_3_13%] min-w-[300px] border-l border-[#cfd0d3] px-4 pt-8 h-screen"
     >
       <div className="flex flex-col items-center">
-        <Avatar sx={{ width: 100, height: 100 }} />
+        <Avatar src={contact?.image} sx={{ width: 100, height: 100 }} />
         <p className="font-bold mt-2 text-center">
           {contact?.firstName} {contact?.lastName}
         </p>

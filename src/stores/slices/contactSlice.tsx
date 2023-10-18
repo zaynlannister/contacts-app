@@ -47,15 +47,6 @@ const initialState = {
       tags: ["friend", "job"],
       image: "",
     },
-    {
-      id: 4,
-      firstName: "Шафафиддиновама",
-      lastName: "Джексон",
-      email: "michael543@gmail.com",
-      phoneNumber: "+998322248883",
-      tags: ["friend", "job"],
-      image: "",
-    },
   ],
 } as ContactsInterface;
 
@@ -63,25 +54,36 @@ export const contactsSlice = createSlice({
   name: "contacts",
   initialState,
   reducers: {
-    createContact: (state) => {
-      console.log(state);
+    createContact: (state, action) => {
+      console.log(action.payload);
+      state.contacts.push(action.payload);
+      localStorage.setItem("contacts", JSON.stringify(state.contacts));
     },
-    deleteContact: (state) => {
-      console.log(state);
+    deleteContact: (state, action) => {
+      state.contacts = state.contacts.filter(
+        (item) => item.id !== parseInt(action.payload)
+      );
+      localStorage.setItem("contacts", JSON.stringify(state.contacts));
     },
-    editContact: (state) => {
-      console.log(state);
-    },
+    editContact: (state) => {},
     getOneContact: (state, action) => {
       const contact = state.contacts.find(
         (item) => item.id === parseInt(action.payload)
       );
       state.contact = contact || null;
     },
+    loadContacts: (state, action) => {
+      state.contacts = action.payload;
+    },
   },
   extraReducers: () => {},
 });
 
-export const { createContact, deleteContact, editContact, getOneContact } =
-  contactsSlice.actions;
+export const {
+  createContact,
+  deleteContact,
+  editContact,
+  getOneContact,
+  loadContacts,
+} = contactsSlice.actions;
 export default contactsSlice.reducer;
