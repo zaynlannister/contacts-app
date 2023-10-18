@@ -13,7 +13,7 @@ import TagsSelect from "../TagsSelect/TagsSelect";
 import CloseIcon from "@mui/icons-material/Close";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { createContact, editContact } from "../../stores/slices/contactSlice";
+import { editContact } from "../../stores/slices/contactSlice";
 
 interface EditModalInterface {
   open: boolean;
