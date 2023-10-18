@@ -3,6 +3,7 @@ import { Button, Typography, TextField, Grid, IconButton } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import TagsSelect from "../TagsSelect/TagsSelect";
 import CloseIcon from "@mui/icons-material/Close";
+// import { useDispatch } from "react-redux";
 
 interface CreateModalInterface {
   open: boolean;
@@ -22,6 +23,20 @@ const style = {
 };
 
 export default function CreateModal(props: CreateModalInterface) {
+  // const dispatch = useDispatch();
+  // const handleCreate = () => {
+  //   dispatch(
+  //     createContact({
+  //       id: 4,
+  //       firstName: "Test 1",
+  //       lastName: "test 2",
+  //       email: "1",
+  //       phoneNumber: "+231313",
+  //       tags: ["1tag", "2tag"],
+  //       iamge: "",
+  //     })
+  //   );
+  // };
   return (
     <div>
       <Modal
@@ -44,6 +59,7 @@ export default function CreateModal(props: CreateModalInterface) {
               <TextField
                 size="small"
                 fullWidth
+                id="outlined-basic-0"
                 label="First name"
                 variant="outlined"
               />
@@ -52,7 +68,7 @@ export default function CreateModal(props: CreateModalInterface) {
               <TextField
                 size="small"
                 fullWidth
-                id="outlined-basic"
+                id="outlined-basic-1"
                 label="Last name"
                 variant="outlined"
               />
@@ -61,7 +77,7 @@ export default function CreateModal(props: CreateModalInterface) {
               <TextField
                 size="small"
                 fullWidth
-                id="outlined-basic"
+                id="outlined-basic-2"
                 label="Phone number"
                 variant="outlined"
               />
@@ -70,7 +86,7 @@ export default function CreateModal(props: CreateModalInterface) {
               <TextField
                 size="small"
                 fullWidth
-                id="outlined-basic"
+                id="outlined-basic-3"
                 label="Email"
                 variant="outlined"
               />

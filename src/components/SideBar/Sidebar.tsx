@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <StyledSideBar
       component="div"
-      className="border-r border-[#cfd0d3] max-sm:hidden md:flex-[3_3_13%] 2xl:flex-[3_3_10%] h-screen p-4"
+      className="border-r border-[#cfd0d3] min-w-[300px] max-sm:hidden md:flex-[3_3_13%] 2xl:flex-[3_3_10%] h-screen p-4"
     >
       <div>
         <div className="pt-2">
@@ -34,7 +34,7 @@ const Sidebar = () => {
 };
 
 const StyledSideBar = styled(Box)({
-  "@media(max-width: 720px)": {
+  "@media(max-width: 1410px)": {
     display: "none",
   },
 });

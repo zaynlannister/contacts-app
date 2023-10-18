@@ -25,7 +25,7 @@ export default function SideBarDrawer() {
     };
 
   const list = () => (
-    <Box role="presentation" sx={{ width: 300, padding: 4 }}>
+    <Box role="presentation" sx={{ width: 350, padding: 4 }}>
       <div className="mx-auto w-fit text-center">
         <Avatar sx={{ width: "130px", height: "130px" }} />
         <p className="font-bold mt-4">Full Name</p>
@@ -70,7 +70,7 @@ export default function SideBarDrawer() {
 
 const StyledAccountButton = styled(Box)({
   display: "none",
-  "@media(max-width: 720px)": {
+  "@media(max-width: 1410px)": {
     display: "block",
   },
 });

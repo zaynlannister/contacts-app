@@ -7,7 +7,6 @@ const Root = () => {
   return (
     <div className="flex">
       <Sidebar />
-
       <div className="flex flex-col flex-[7_7_70%]">
         <TopBar />
         <div className="flex">

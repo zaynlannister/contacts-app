@@ -4,6 +4,8 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Root from "./components/Root.tsx";
 import Contacts from "./pages/Contacts/Contacts.tsx";
+import store from "./stores/store.ts";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -15,12 +17,18 @@ const router = createBrowserRouter([
         path: "contacts",
         element: <Contacts />,
       },
+      {
+        path: "contacts/:id",
+        element: <Contacts />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

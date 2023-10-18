@@ -10,9 +10,21 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
 
+interface ContactInterface {
+  contact: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    tags: string[];
+    image: string;
+  };
+}
+
 type Anchor = "right" | "left" | "bottom" | "top";
 
-export default function ContactDrawer() {
+export default function ContactDrawer(props: ContactInterface) {
   const [state, setState] = React.useState<boolean>(false);
 
   const toggleDrawer =
@@ -30,16 +42,18 @@ export default function ContactDrawer() {
     };
 
   const list = () => (
-    <Box role="presentation" sx={{ width: 300, padding: 4 }}>
+    <Box role="presentation" sx={{ width: 350, padding: 4 }}>
       <div className="mx-auto w-fit text-center">
         <Avatar sx={{ width: "130px", height: "130px" }} />
-        <p className="font-bold mt-4">Full Name</p>
+        <p className="font-bold mt-4">
+          {props.contact?.firstName} {props.contact?.lastName}
+        </p>
       </div>
       <div className="mt-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center border-b border-[#e7e7e7] pb-2">
           <div className="text-[14px]">
             <p className="text-[#7C7C7C]">Phone number</p>
-            <p>+023023020</p>
+            <p>{props.contact?.phoneNumber}</p>
           </div>
           <div className="ml-2">
             <GreenButton
@@ -58,7 +72,7 @@ export default function ContactDrawer() {
         </div>
         <div className="flex justify-between mt-2">
           <div className="text-[14px]">
-            <p className="text-[#7C7C7C]">Email Address</p>
+            <p className="text-[#7C7C7C]">{props.contact?.email}</p>
             <p>test@gmail.com</p>
           </div>
           <div className="ml-2">
