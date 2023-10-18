@@ -6,6 +6,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SideBarDrawer from "../SideBar/SideBarDrawer";
 import CreateModal from "../Modals/CreateModal";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../stores/store";
+import { setSearchQuery } from "../../stores/slices/searchSlice";
 
 const GreenButton = styled(Button)<ButtonProps>(({}) => ({
   color: "#ffff",
@@ -17,7 +20,13 @@ const GreenButton = styled(Button)<ButtonProps>(({}) => ({
 }));
 
 const TopBar = () => {
+  const dispatch = useDispatch();
+  const searchQuery = useSelector((state: RootState) => state.searchSlice);
   const [openModal, setOpenModal] = React.useState<boolean>(false);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchQuery(e.target.value));
+  };
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -31,9 +40,11 @@ const TopBar = () => {
       <div className="flex flex-[7_7_70%] p-4">
         <SideBarDrawer />
         <TextField
+          value={searchQuery}
+          onChange={handleSearchChange}
           fullWidth
           size="small"
-          placeholder="Search by name, phone"
+          placeholder="Search by name, phone and email"
           autoComplete="off"
           variant="outlined"
         />

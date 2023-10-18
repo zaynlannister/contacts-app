@@ -8,9 +8,22 @@ import { loadContacts } from "../../stores/slices/contactSlice";
 
 const Contacts = () => {
   const dispatch = useDispatch();
+  const searchQuery = useSelector((state: RootState) => state.searchSlice);
   const contacts = useSelector(
     (state: RootState) => state.contactsSlice.contacts
   );
+
+  const filteredContacts = contacts.filter((contact) => {
+    const { firstName, lastName, email, phoneNumber } = contact;
+    const searchQueryLowerCase = searchQuery.toLowerCase();
+
+    return (
+      firstName.toLowerCase().includes(searchQueryLowerCase) ||
+      lastName.toLowerCase().includes(searchQueryLowerCase) ||
+      email.toLowerCase().includes(searchQueryLowerCase) ||
+      phoneNumber.includes(searchQuery)
+    );
+  });
 
   React.useEffect(() => {
     const storedContacts = localStorage.getItem("contacts");
@@ -24,7 +37,7 @@ const Contacts = () => {
     <div className="flex-[7_7_70%] p-4">
       <ScrollBar>
         <Grid container spacing={2}>
-          {contacts.map((item: any, index: any) => (
+          {filteredContacts.map((item: any, index: any) => (
             <Grid key={item.id} item xs={12} sm={12} md={12} xl={12}>
               <Contact contact={item} index={index} />
             </Grid>
