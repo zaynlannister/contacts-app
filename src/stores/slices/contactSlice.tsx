@@ -19,35 +19,7 @@ interface ContactsInterface {
 const initialState = {
   isLoading: false,
   contact: null,
-  contacts: [
-    {
-      id: 1,
-      firstName: "Бекзод",
-      lastName: "Тулаев",
-      email: "zaynlannister@gmail.com",
-      phoneNumber: "+998332488838",
-      tags: ["family"],
-      image: "",
-    },
-    {
-      id: 2,
-      firstName: "Джони",
-      lastName: "Депп",
-      email: "jonny123@gmail.com",
-      phoneNumber: "+998332423438",
-      tags: ["family", "friend"],
-      image: "",
-    },
-    {
-      id: 3,
-      firstName: "Майкл",
-      lastName: "Джексон",
-      email: "michael543@gmail.com",
-      phoneNumber: "+998322248883",
-      tags: ["friend", "job"],
-      image: "",
-    },
-  ],
+  contacts: [],
 } as ContactsInterface;
 
 export const contactsSlice = createSlice({
@@ -55,7 +27,6 @@ export const contactsSlice = createSlice({
   initialState,
   reducers: {
     createContact: (state, action) => {
-      console.log(action.payload);
       state.contacts.push(action.payload);
       localStorage.setItem("contacts", JSON.stringify(state.contacts));
     },
@@ -65,7 +36,16 @@ export const contactsSlice = createSlice({
       );
       localStorage.setItem("contacts", JSON.stringify(state.contacts));
     },
-    editContact: (state) => {},
+    editContact: (state, action) => {
+      const { contactId, updatedContact } = action.payload;
+      const index = state.contacts.findIndex(
+        (contact) => contact.id === contactId
+      );
+      if (index !== -1) {
+        state.contacts[index] = updatedContact;
+        localStorage.setItem("contacts", JSON.stringify(state.contacts));
+      }
+    },
     getOneContact: (state, action) => {
       const contact = state.contacts.find(
         (item) => item.id === parseInt(action.payload)

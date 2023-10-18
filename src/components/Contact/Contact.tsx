@@ -12,6 +12,7 @@ import {
 } from "../../stores/slices/contactStateSlice";
 import { useNavigate } from "react-router-dom";
 import { deleteContact } from "../../stores/slices/contactSlice";
+import EditModal from "../Modals/EditModal";
 
 interface ContactInterface {
   index: number;
@@ -29,8 +30,9 @@ interface ContactInterface {
 const Contact = (props: ContactInterface) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [openEdit, setOpenEdit] = React.useState<boolean>(false);
   const textRef = React.useRef<HTMLParagraphElement | null>(null);
-  const [isSmallScreen, setIsSmallScreen] = React.useState(false);
+  const [isSmallScreen, setIsSmallScreen] = React.useState<boolean>(false);
   const contact = props.contact;
   const activeContactId = useSelector(
     (state: RootState) => state.contactsStateSlice.activeContactId
@@ -48,6 +50,14 @@ const Contact = (props: ContactInterface) => {
 
   const handleDelete = () => {
     dispatch(deleteContact(contact.id));
+  };
+
+  const handleOpenEdit = () => {
+    setOpenEdit(true);
+  };
+
+  const handleCloseEdit = () => {
+    setOpenEdit(false);
   };
 
   React.useEffect(() => {
@@ -116,6 +126,7 @@ const Contact = (props: ContactInterface) => {
         <div className="flex">
           <ContactDrawer contact={contact} />
           <RedButton
+            onClick={handleOpenEdit}
             sx={{
               p: 0,
               minHeight: 0,
@@ -138,6 +149,13 @@ const Contact = (props: ContactInterface) => {
             <DeleteOutlineIcon sx={{ padding: "2px" }} />
           </RedButton>
         </div>
+      </div>
+      <div className="absolute">
+        <EditModal
+          contact={contact}
+          open={openEdit}
+          handleClose={handleCloseEdit}
+        />
       </div>
     </div>
   );

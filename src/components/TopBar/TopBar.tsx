@@ -5,10 +5,10 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SideBarDrawer from "../SideBar/SideBarDrawer";
-import CreateModal from "../Modals/CreateModal";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../stores/store";
 import { setSearchQuery } from "../../stores/slices/searchSlice";
+import CreateModal from "../Modals/CreateModal";
 
 const GreenButton = styled(Button)<ButtonProps>(({}) => ({
   color: "#ffff",

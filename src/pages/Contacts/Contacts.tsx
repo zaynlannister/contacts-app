@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Contact from "../../components/Contact/Contact";
 import ScrollBar from "../../components/ScrollBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,13 +36,22 @@ const Contacts = () => {
   return (
     <div className="flex-[7_7_70%] p-4">
       <ScrollBar>
-        <Grid container spacing={2}>
-          {filteredContacts.map((item: any, index: any) => (
-            <Grid key={item.id} item xs={12} sm={12} md={12} xl={12}>
-              <Contact contact={item} index={index} />
-            </Grid>
-          ))}
-        </Grid>
+        {contacts.length === 0 ? (
+          <Typography
+            variant="h3"
+            className="text-[#bdbdbd] text-center font-bold pt-12"
+          >
+            There is no contacts!
+          </Typography>
+        ) : (
+          <Grid container spacing={2}>
+            {filteredContacts.map((item: any, index: any) => (
+              <Grid key={item.id} item xs={12} sm={12} md={12} xl={12}>
+                <Contact contact={item} index={index} />
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </ScrollBar>
     </div>
   );
