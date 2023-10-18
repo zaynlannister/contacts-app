@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, ButtonProps } from "@mui/material";
+import { Avatar, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";

@@ -45,20 +45,20 @@ export default function SideBarDrawer() {
 
   return (
     <div>
-      {(["right"] as const).map((anchor) => (
+      {(["left"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <StyledAccountButton component="div">
             <IconButton
-              onClick={toggleDrawer("right", true)}
+              onClick={toggleDrawer("left", true)}
               sx={{ height: "40px", width: "40px", marginRight: "10px" }}
             >
               <Avatar sx={{ width: "40px", height: "40px" }} />
             </IconButton>
           </StyledAccountButton>
           <Drawer
-            anchor="right"
+            anchor="left"
             open={state}
-            onClose={toggleDrawer("right", false)}
+            onClose={toggleDrawer("left", false)}
           >
             {list()}
           </Drawer>

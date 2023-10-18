@@ -1,7 +1,10 @@
-import { Avatar, Button, ButtonProps } from "@mui/material";
+import { Avatar, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
+
+import { RedButton } from "../Buttons/ColoredButtons";
+import ContactDrawer from "./ContactViewDrawer";
 
 interface ContactInterface {
   contact: {
@@ -12,18 +15,6 @@ interface ContactInterface {
     image: string;
   };
 }
-
-const RedButton = styled(Button)<ButtonProps>(({}) => ({
-  color: "#e14545",
-  backgroundColor: "transparent",
-  border: "1px solid #e14545",
-  boxShadow: "none",
-  "&:hover": {
-    color: "#ffff",
-    backgroundColor: "#e14545",
-    boxShadow: "none",
-  },
-}));
 
 const Contact = (props: ContactInterface) => {
   const contact = props.contact;
@@ -55,6 +46,7 @@ const Contact = (props: ContactInterface) => {
           ))}
         </div>
         <div className="flex">
+          <ContactDrawer />
           <RedButton
             sx={{
               p: 0,
@@ -81,5 +73,12 @@ const Contact = (props: ContactInterface) => {
     </div>
   );
 };
+
+const ViewButtonStyled = styled(Box)({
+  display: "none",
+  "@media(max-width: 905px)": {
+    display: "block",
+  },
+});
 
 export default Contact;

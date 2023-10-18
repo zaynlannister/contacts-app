@@ -20,3 +20,15 @@ export const OrangeButton = styled(Button)<ButtonProps>(({}) => ({
     boxShadow: "none",
   },
 }));
+
+export const RedButton = styled(Button)<ButtonProps>(({}) => ({
+  color: "#e14545",
+  backgroundColor: "transparent",
+  border: "1px solid #e14545",
+  boxShadow: "none",
+  "&:hover": {
+    color: "#ffff",
+    backgroundColor: "#e14545",
+    boxShadow: "none",
+  },
+}));
