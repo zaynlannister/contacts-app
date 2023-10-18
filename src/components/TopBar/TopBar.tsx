@@ -1,9 +1,11 @@
+import React from "react";
 import { Button, ButtonProps, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import SideBarDrawer from "../SideBar/SideBarDrawer";
+import CreateModal from "../Modals/CreateModal";
 
 const GreenButton = styled(Button)<ButtonProps>(({}) => ({
   color: "#ffff",
@@ -15,6 +17,15 @@ const GreenButton = styled(Button)<ButtonProps>(({}) => ({
 }));
 
 const TopBar = () => {
+  const [openModal, setOpenModal] = React.useState<boolean>(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
   return (
     <form className="flex border-b border-[#cfd0d3]">
       <div className="flex flex-[7_7_70%] p-4">
@@ -52,7 +63,9 @@ const TopBar = () => {
         >
           <FilterAltIcon />
         </Button>
+        <CreateModal open={openModal} handleClose={handleCloseModal} />
         <GreenButton
+          onClick={handleOpenModal}
           size="small"
           sx={{
             marginLeft: "8px",
