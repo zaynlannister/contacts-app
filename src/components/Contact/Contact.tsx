@@ -1,8 +1,6 @@
-import { Avatar, Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Avatar } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
-
 import { RedButton } from "../Buttons/ColoredButtons";
 import ContactDrawer from "./ContactViewDrawer";
 
@@ -73,12 +71,5 @@ const Contact = (props: ContactInterface) => {
     </div>
   );
 };
-
-const ViewButtonStyled = styled(Box)({
-  display: "none",
-  "@media(max-width: 905px)": {
-    display: "block",
-  },
-});
 
 export default Contact;
