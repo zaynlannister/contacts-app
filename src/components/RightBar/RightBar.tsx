@@ -35,7 +35,7 @@ const RightBar = () => {
       </div>
       <div className="mt-8">
         <div>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div className="text-[14px]">
               <p className="text-[#7C7C7C]">Phone number</p>
               <p>+023023020</p>
@@ -43,13 +43,15 @@ const RightBar = () => {
             <div className="ml-2">
               <PhoneButton
                 sx={{
-                  paddingX: "10px",
-                  minHeight: 0,
+                  width: "30px",
+                  height: "30px",
                   minWidth: 0,
+                  minHeight: 0,
+                  padding: 0,
                 }}
                 variant="contained"
               >
-                <LocalPhoneOutlinedIcon />
+                <LocalPhoneOutlinedIcon sx={{ padding: "2px" }} />
               </PhoneButton>
             </div>
           </div>
@@ -61,13 +63,15 @@ const RightBar = () => {
             <div className="ml-2">
               <EmailButton
                 sx={{
-                  paddingX: "10px",
-                  minHeight: 0,
+                  width: "30px",
+                  height: "30px",
                   minWidth: 0,
+                  minHeight: 0,
+                  padding: 0,
                 }}
                 variant="contained"
               >
-                <LocalPostOfficeOutlinedIcon />
+                <LocalPostOfficeOutlinedIcon sx={{ padding: "2px" }} />
               </EmailButton>
             </div>
           </div>
