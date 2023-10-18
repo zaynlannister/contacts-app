@@ -25,7 +25,7 @@ const EmailButton = styled(Button)<ButtonProps>(({}) => ({
 
 const RightBar = () => {
   return (
-    <div className="max-w-[300px] min-w-[300px] border-l border-[#cfd0d3] px-4 pt-8 h-screen">
+    <div className="flex-[3_3_13%] border-l border-[#cfd0d3] px-4 pt-8 h-screen">
       <div className="flex flex-col items-center">
         <Avatar sx={{ width: 100, height: 100 }} />
         <p className="font-bold mt-2">User name</p>
@@ -37,7 +37,7 @@ const RightBar = () => {
               <p className="text-[#7C7C7C]">Phone number</p>
               <p>+023023020</p>
             </div>
-            <div>
+            <div className="ml-2">
               <PhoneButton
                 sx={{
                   paddingX: "10px",
@@ -55,7 +55,7 @@ const RightBar = () => {
               <p className="text-[#7C7C7C]">Email Address</p>
               <p>test@gmail.com</p>
             </div>
-            <div>
+            <div className="ml-2">
               <EmailButton
                 sx={{
                   paddingX: "10px",

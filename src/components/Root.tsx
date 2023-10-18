@@ -5,13 +5,12 @@ import Contacts from "../pages/Contacts/Contacts";
 
 const Root = () => {
   return (
-    <div className="flex overflow-hidden">
-      <div>
-        <Sidebar />
-      </div>
-      <div className="w-full">
+    <div className="flex">
+      <Sidebar />
+
+      <div className="flex flex-col flex-[7_7_70%]">
         <TopBar />
-        <div className="flex justify-between">
+        <div className="flex">
           <Contacts />
           <RightBar />
         </div>

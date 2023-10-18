@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import Contact from "../../components/Contact/Contact";
 import ScrollBar from "../../components/ScrollBar";
 
@@ -27,11 +28,15 @@ const contacts = [
 
 const Contacts = () => {
   return (
-    <div className="w-full px-[150px] pt-6">
+    <div className="flex-[7_7_70%] p-4">
       <ScrollBar>
-        {contacts.map((item, index) => (
-          <Contact key={index} contact={item} />
-        ))}
+        <Grid container spacing={2}>
+          {contacts.map((item, index) => (
+            <Grid item xs={12} sm={12} md={12} xl={12}>
+              <Contact key={index} contact={item} />
+            </Grid>
+          ))}
+        </Grid>
       </ScrollBar>
     </div>
   );
