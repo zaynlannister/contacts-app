@@ -1,5 +1,12 @@
 import Box from "@mui/material/Box";
-import { Button, Typography, TextField, Grid, IconButton } from "@mui/material";
+import {
+  Button,
+  Typography,
+  TextField,
+  Grid,
+  IconButton,
+  styled,
+} from "@mui/material";
 import Modal from "@mui/material/Modal";
 import TagsSelect from "../TagsSelect/TagsSelect";
 import CloseIcon from "@mui/icons-material/Close";
@@ -45,7 +52,7 @@ export default function CreateModal(props: CreateModalInterface) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <StyledModalBox sx={style} component="div">
           <div className="flex items-center justify-between">
             <Typography variant="h6" component="h2">
               Create new contact
@@ -98,8 +105,14 @@ export default function CreateModal(props: CreateModalInterface) {
           <Box className="mt-8 flex justify-end">
             <Button variant="contained">Create</Button>
           </Box>
-        </Box>
+        </StyledModalBox>
       </Modal>
     </div>
   );
 }
+
+const StyledModalBox = styled(Box)({
+  "@media(max-width: 635px)": {
+    width: "90%",
+  },
+});
