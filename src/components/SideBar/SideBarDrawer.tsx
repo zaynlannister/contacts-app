@@ -1,11 +1,6 @@
 import * as React from "react";
-import {
-  Box,
-  Avatar,
-  IconButton,
-  styled,
-  SwipeableDrawer,
-} from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+import { Box, Avatar, IconButton, styled } from "@mui/material";
 import SideBarContent from "./SideBarContent";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -60,14 +55,13 @@ export default function SideBarDrawer() {
               <Avatar sx={{ width: "40px", height: "40px" }} />
             </IconButton>
           </StyledAccountButton>
-          <SwipeableDrawer
+          <Drawer
             anchor="left"
             open={state}
             onClose={toggleDrawer("left", false)}
-            onOpen={toggleDrawer("left", true)}
           >
             {list()}
-          </SwipeableDrawer>
+          </Drawer>
         </React.Fragment>
       ))}
     </div>

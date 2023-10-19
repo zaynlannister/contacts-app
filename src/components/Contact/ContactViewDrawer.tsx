@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Box, Avatar, styled, SwipeableDrawer } from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+import { Box, Avatar, styled } from "@mui/material";
 import {
   GreenButton,
   OrangeButton,
@@ -114,15 +115,13 @@ export default function ContactDrawer(props: ContactInterface) {
               <RemoveRedEyeOutlinedIcon sx={{ padding: "2px" }} />
             </RedButton>
           </StyledAccountButton>
-
-          <SwipeableDrawer
+          <Drawer
             anchor="right"
             open={state}
             onClose={toggleDrawer("right", false)}
-            onOpen={toggleDrawer("right", true)}
           >
             {list()}
-          </SwipeableDrawer>
+          </Drawer>
         </React.Fragment>
       ))}
     </div>
