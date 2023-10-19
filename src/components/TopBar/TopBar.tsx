@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonProps, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
@@ -54,9 +54,9 @@ const TopBar = () => {
           size="small"
           sx={{
             marginLeft: "8px",
-            padding: "0 12px",
-            minHeight: 0,
-            minWidth: 0,
+            padding: 0,
+            minHeight: "40px",
+            minWidth: "40px",
           }}
           variant="contained"
         >
@@ -66,23 +66,40 @@ const TopBar = () => {
       <div className="flex justify-end flex-[3_3_13%] p-4">
         <FilterButtonComponent onFilterChange={handleFilterChange} />
         <CreateModal open={openModal} handleClose={handleCloseModal} />
-        <GreenButton
-          onClick={handleOpenModal}
-          size="small"
-          sx={{
-            marginLeft: "8px",
-            padding: "0 12px",
-            minHeight: 0,
-            minWidth: 0,
-          }}
-          variant="contained"
-          startIcon={<AddCircleOutlineOutlinedIcon />}
-        >
-          Create
-        </GreenButton>
+        <StyledCreateButtonBox component="div">
+          <GreenButton
+            className="create-button"
+            onClick={handleOpenModal}
+            size="small"
+            sx={{
+              marginLeft: "8px",
+              padding: "0 12px",
+              minHeight: 0,
+              minWidth: 0,
+            }}
+            variant="contained"
+            startIcon={<AddCircleOutlineOutlinedIcon />}
+          >
+            <span className="create-button__text">Create</span>
+          </GreenButton>
+        </StyledCreateButtonBox>
       </div>
     </form>
   );
 };
+
+const StyledCreateButtonBox = styled(Box)({
+  display: "flex",
+  "@media(max-width: 540px)": {
+    ".create-button": {
+      span: {
+        margin: 0,
+      },
+    },
+    ".create-button__text": {
+      display: "none",
+    },
+  },
+});
 
 export default TopBar;

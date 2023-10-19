@@ -103,9 +103,9 @@ export default function FilterButtonComponent(
         onClick={handleClick}
         size="small"
         sx={{
-          padding: "0 12px",
-          minHeight: 0,
-          minWidth: 0,
+          minHeight: "40px",
+          minWidth: "40px",
+          p: 0,
         }}
       >
         <FilterAltIcon />
