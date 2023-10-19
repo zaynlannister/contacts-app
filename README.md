@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-Contacts Application with search, filter, (create, edit and remove)
+Contacts Application with search, filter, (create, edit and remove) + adaptive
 
 - TS
 - React
@@ -9,4 +9,4 @@ Contacts Application with search, filter, (create, edit and remove)
 - Tailwind
 - MUI
 - Formik
-- react-fade-in
+- data aos animation
