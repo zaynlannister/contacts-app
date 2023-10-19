@@ -28,13 +28,11 @@ export const contactsSlice = createSlice({
   reducers: {
     createContact: (state, action) => {
       state.contacts.push(action.payload);
-      localStorage.setItem("contacts", JSON.stringify(state.contacts));
     },
     deleteContact: (state, action) => {
       state.contacts = state.contacts.filter(
         (item) => item.id !== parseInt(action.payload)
       );
-      localStorage.setItem("contacts", JSON.stringify(state.contacts));
     },
     editContact: (state, action) => {
       const { contactId, updatedContact } = action.payload;
@@ -43,7 +41,6 @@ export const contactsSlice = createSlice({
       );
       if (index !== -1) {
         state.contacts[index] = updatedContact;
-        localStorage.setItem("contacts", JSON.stringify(state.contacts));
       }
     },
     getOneContact: (state, action) => {

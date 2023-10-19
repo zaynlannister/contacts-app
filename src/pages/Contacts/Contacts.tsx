@@ -1,13 +1,10 @@
-import React from "react";
 import { Grid, Typography } from "@mui/material";
 import Contact from "../../components/Contact/Contact";
 import ScrollBar from "../../components/ScrollBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../stores/store";
-import { loadContacts } from "../../stores/slices/contactSlice";
 
 const Contacts = () => {
-  const dispatch = useDispatch();
   const searchQuery = useSelector((state: RootState) => state.searchSlice);
   const contacts = useSelector(
     (state: RootState) => state.contactsSlice.contacts
@@ -37,14 +34,6 @@ const Contacts = () => {
     );
   });
 
-  React.useEffect(() => {
-    const storedContacts = localStorage.getItem("contacts");
-    const parsedContacts = storedContacts ? JSON.parse(storedContacts) : null;
-
-    if (parsedContacts) {
-      dispatch(loadContacts(parsedContacts));
-    }
-  }, []);
   return (
     <div className="flex-[7_7_70%] p-4">
       <ScrollBar>

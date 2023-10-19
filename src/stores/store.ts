@@ -1,19 +1,22 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import contactSlice from "./slices/contactSlice";
-import contactStateSlice from "./slices/contactStateSlice";
-import searchSlice from "./slices/searchSlice";
-import filterSlice from "./slices/filterSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./root";
+import { persistStore } from "redux-persist";
+import thunkMiddleware from "redux-thunk";
+import logger from "redux-logger";
 
-const rootReducer = combineReducers({
-  contactsSlice: contactSlice,
-  contactsStateSlice: contactStateSlice,
-  searchSlice: searchSlice,
-  filterSlice: filterSlice,
-});
+let middleWares = [thunkMiddleware];
+
+if (process.env.NODE_ENV === "development") {
+  middleWares = [...middleWares, logger];
+}
 
 const store = configureStore({
   reducer: rootReducer,
+  devTools: process.env.NODE_ENV === "development",
+  middleware: middleWares,
 });
+
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export default store;
