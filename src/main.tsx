@@ -6,6 +6,17 @@ import Root from "./components/Root.tsx";
 import Contacts from "./pages/Contacts/Contacts.tsx";
 import store from "./stores/store.ts";
 import { Provider } from "react-redux";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+  offset: 100,
+  delay: 50,
+  duration: 500,
+  easing: "ease-in-out",
+  mirror: true,
+  once: false,
+});
 
 const router = createBrowserRouter([
   {

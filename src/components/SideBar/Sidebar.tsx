@@ -11,12 +11,18 @@ const Sidebar = () => {
     >
       <div>
         <div className="pt-2">
-          <Typography variant="h6">Address Book</Typography>
+          <Typography data-aos="fade-left" variant="h6">
+            Address Book
+          </Typography>
         </div>
         <div className="flex flex-col items-center text-center mt-6">
           <Avatar sx={{ width: "120px", height: "120px" }} />
-          <p className="font-bold mt-2">username</p>
-          <p className="text-[#7C7C7C] text-[14px]">email@gmail.com</p>
+          <p data-aos="fade-up" className="font-bold mt-2">
+            username
+          </p>
+          <p data-aos="fade-up" className="text-[#7C7C7C] text-[14px]">
+            email@gmail.com
+          </p>
         </div>
         <div className="mt-4">
           <SideBarContent

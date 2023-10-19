@@ -13,15 +13,7 @@ import {
   setFriendChecked,
 } from "../../stores/slices/filterSlice";
 import { setSearchQuery } from "../../stores/slices/searchSlice";
-
-const GreenButton = styled(Button)<ButtonProps>(({}) => ({
-  color: "#ffff",
-  backgroundColor: "#00C938",
-  boxShadow: "none",
-  "&:hover": {
-    backgroundColor: "#07a433",
-  },
-}));
+import { GreenButton } from "../Buttons/ColoredButtons";
 
 const TopBar = () => {
   const dispatch = useDispatch();

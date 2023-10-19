@@ -84,6 +84,13 @@ const Contact = (props: ContactInterface) => {
   }, []);
   return (
     <div
+      data-aos="fade-up"
+      data-aos-offset="100"
+      data-aos-delay="50"
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
       onClick={handleClick}
       className={`flex items-center justify-between border-2 rounded p-4 max-sm:flex-col max-lg:items-start cursor-pointer ${
         isActive ? "border-[#80B3FF]" : "border-[#cfd0d3]"
