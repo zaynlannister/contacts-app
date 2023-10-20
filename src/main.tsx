@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { PersistGate } from "redux-persist/integration/react";
+import ErrorPage from "./pages/Contacts/ErrorPage.tsx";
 
 AOS.init({
   offset: 100,
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <div>Error page</div>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "contacts",
