@@ -51,6 +51,7 @@ const LoginPage = () => {
 const StyledLogin = styled.div`
   @media (max-width: 405px) {
     width: 100%;
+    border-radius: 0;
   }
 `;
 
