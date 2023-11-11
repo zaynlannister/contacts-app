@@ -21,7 +21,7 @@ const Sidebar = () => {
         <div className="flex flex-col items-center text-center mt-6">
           <Avatar sx={{ width: "120px", height: "120px" }} />
           <p data-aos="fade-up" className="font-bold mt-2">
-            {auth.user?.name || "user"}
+            {auth.user?.name}
           </p>
           {/* <p data-aos="fade-up" className="text-[#7C7C7C] text-[14px]">
             email@gmail.com
@@ -29,7 +29,7 @@ const Sidebar = () => {
         </div>
         <div className="mt-4">
           <SideBarContent
-            text={auth.user?.phoneNumber || "unknown"}
+            text={auth.user?.phoneNumber}
             icon={<LocalPhoneOutlinedIcon sx={{ fontSize: 20 }} />}
           />
           <SideBarContent

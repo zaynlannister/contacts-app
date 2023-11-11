@@ -31,10 +31,10 @@ export default function SideBarDrawer() {
     <Box role="presentation" sx={{ width: 350, padding: 4 }}>
       <div className="mx-auto w-fit text-center">
         <Avatar sx={{ width: "130px", height: "130px" }} />
-        <p className="font-bold mt-4">{auth.user?.name || "user"}</p>
+        <p className="font-bold mt-4">{auth.user?.name}</p>
         <div className="mt-4">
           <SideBarContent
-            text={auth.user?.phoneNumber || "unknown"}
+            text={auth.user?.phoneNumber}
             icon={<LocalPhoneOutlinedIcon sx={{ fontSize: 20 }} />}
           />
           <SideBarContent

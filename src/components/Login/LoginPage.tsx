@@ -10,7 +10,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const { values, handleChange } = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       phoneNumber: "",
     },
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
       <h1>Login</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="login__txt-field">
-          <input onChange={handleChange} name="username" type="text" required />
+          <input onChange={handleChange} name="name" type="text" required />
           <span></span>
           <label>Username</label>
         </div>
