@@ -4,11 +4,14 @@ import { Box, Avatar, IconButton, styled } from "@mui/material";
 import SideBarContent from "./SideBarContent";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { RootState } from "../../stores/store";
+import { useSelector } from "react-redux";
 
 type Anchor = "right" | "left" | "bottom" | "top";
 
 export default function SideBarDrawer() {
   const [state, setState] = React.useState<boolean>(false);
+  const auth = useSelector((state: RootState) => state.authSlice);
 
   const toggleDrawer =
     (_: Anchor, open: boolean) =>
@@ -28,10 +31,10 @@ export default function SideBarDrawer() {
     <Box role="presentation" sx={{ width: 350, padding: 4 }}>
       <div className="mx-auto w-fit text-center">
         <Avatar sx={{ width: "130px", height: "130px" }} />
-        <p className="font-bold mt-4">Full Name</p>
+        <p className="font-bold mt-4">{auth.user?.name || "user"}</p>
         <div className="mt-4">
           <SideBarContent
-            text="+998332488828"
+            text={auth.user?.phoneNumber || "unknown"}
             icon={<LocalPhoneOutlinedIcon sx={{ fontSize: 20 }} />}
           />
           <SideBarContent

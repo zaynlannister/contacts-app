@@ -24,7 +24,8 @@
     "react-router-dom": "^6.17.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
     "@types/aos": "^3.0.6",

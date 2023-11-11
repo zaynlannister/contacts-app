@@ -2,8 +2,11 @@ import { Avatar, Typography, styled, Box } from "@mui/material";
 import SideBarContent from "./SideBarContent";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { useSelector } from "react-redux";
+import { RootState } from "../../stores/store";
 
 const Sidebar = () => {
+  const auth = useSelector((state: RootState) => state.authSlice);
   return (
     <StyledSideBar
       component="div"
@@ -18,15 +21,15 @@ const Sidebar = () => {
         <div className="flex flex-col items-center text-center mt-6">
           <Avatar sx={{ width: "120px", height: "120px" }} />
           <p data-aos="fade-up" className="font-bold mt-2">
-            username
+            {auth.user?.name || "user"}
           </p>
-          <p data-aos="fade-up" className="text-[#7C7C7C] text-[14px]">
+          {/* <p data-aos="fade-up" className="text-[#7C7C7C] text-[14px]">
             email@gmail.com
-          </p>
+          </p> */}
         </div>
         <div className="mt-4">
           <SideBarContent
-            text="+998332488828"
+            text={auth.user?.phoneNumber || "unknown"}
             icon={<LocalPhoneOutlinedIcon sx={{ fontSize: 20 }} />}
           />
           <SideBarContent

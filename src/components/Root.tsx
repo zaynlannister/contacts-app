@@ -2,19 +2,30 @@ import TopBar from "./TopBar/TopBar";
 import Sidebar from "./SideBar/Sidebar";
 import RightBar from "./RightBar/RightBar";
 import Contacts from "../pages/Contacts/Contacts";
+import { useSelector } from "react-redux";
+import { RootState } from "../stores/store";
+import LoginPage from "./Login/LoginPage";
 
 const Root = () => {
+  const auth = useSelector((state: RootState) => state.authSlice);
+  console.log(auth);
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="flex flex-col flex-[7_7_70%]">
-        <TopBar />
+    <>
+      {auth.isLogged ? (
         <div className="flex">
-          <Contacts />
-          <RightBar />
+          <Sidebar />
+          <div className="flex flex-col flex-[7_7_70%]">
+            <TopBar />
+            <div className="flex">
+              <Contacts />
+              <RightBar />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <LoginPage />
+      )}
+    </>
   );
 };
 
