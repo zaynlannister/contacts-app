@@ -8,7 +8,7 @@ import LoginPage from "./Login/LoginPage";
 
 const Root = () => {
   const auth = useSelector((state: RootState) => state.authSlice);
-  console.log(auth);
+
   return (
     <>
       {auth.isLogged ? (

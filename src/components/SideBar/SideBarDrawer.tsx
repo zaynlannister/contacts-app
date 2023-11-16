@@ -34,7 +34,7 @@ export default function SideBarDrawer() {
         <p className="font-bold mt-4">{auth.user?.name}</p>
         <div className="mt-4">
           <SideBarContent
-            text={auth.user?.phoneNumber}
+            text={auth.user?.phoneNumber || ""}
             icon={<LocalPhoneOutlinedIcon sx={{ fontSize: 20 }} />}
           />
           <SideBarContent

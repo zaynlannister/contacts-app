@@ -1,6 +1,6 @@
 interface SideBarContentInterface {
   icon: React.ReactNode;
-  text: string;
+  text: string | "";
 }
 
 const SideBarContent = (props: SideBarContentInterface) => {

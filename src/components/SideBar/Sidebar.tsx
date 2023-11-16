@@ -29,7 +29,7 @@ const Sidebar = () => {
         </div>
         <div className="mt-4">
           <SideBarContent
-            text={auth.user?.phoneNumber}
+            text={auth.user?.phoneNumber || ""}
             icon={<LocalPhoneOutlinedIcon sx={{ fontSize: 20 }} />}
           />
           <SideBarContent
